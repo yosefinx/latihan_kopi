@@ -4,40 +4,34 @@ include 'koneksi.php';
 
 <form method="POST" action="sv_pendaftaran.php">
     <label>Nama Lengkap</label>
-    <input type="text" name="nama" placeholder="Masukkan nama lengkap">
+    <input type="text" name="full_name" placeholder="Masukkan nama lengkap">
 
     <label>Email</label>
     <input type="email" name="email" placeholder="contoh@email.com">
 
     <label>Nomor WhatsApp</label>
-    <input type="text" name="wa" placeholder="08123456789">
+    <input type="text" name="phone_number" placeholder="08123456789">
 
     <label>Pilih Kelas</label>
-    <select name="kelas">
+    <select name="course_id">
         <option value="">Pilih Kelas</option>
         <?php
-        /* $sql = "SELECT * FROM courses";
+        $sql = "SELECT * FROM courses";
         $query = mysqli_query($conn, $sql);
         while ($result = mysqli_fetch_assoc($query)) {
-        ?>
-            <option value="<?= $result['id'] ?>"><?= $result['name'] ?> - Rp <?= number_format($result['price'], 0, ',', '.') ?></option>
-        <?php }  ?>
-        <?php
-        /* $kelasList = [
-            "Basic Brewing" => 150000,
-            "Latte Art Pemula" => 200000,
-            "Bisnis Kopi Rumahan" => 250000
-        ];
+            $id = $result['id'];
+            $course_name = $result['name'];
+            $course_price = $result['price'];
 
-        foreach ($kelasList as $namaKelas => $harga): ?>
-            <option value="<?= htmlspecialchars($namaKelas) ?>">
-                <?= htmlspecialchars($namaKelas) ?> - Rp<?= number_format($harga, 0, ',', '.') ?>
+        ?>
+            <option value="<?= $id ?>">
+                <?= $course_name ?> - Rp <?= number_format($course_price, 0, ',', '.') ?>
             </option>
-        <?php endforeach;  */ ?>
+        <?php } ?>
     </select>
 
     <label>Jumlah Peserta</label>
-    <input type="number" name="jumlah" min="1" value="1">
+    <input type="number" name="participant_count" min="1" value="1">
 
     <button type="submit" name="daftar">Daftar Sekarang</button>
 </form>

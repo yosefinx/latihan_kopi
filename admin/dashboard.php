@@ -9,4 +9,6 @@ echo "Selamat datang, $username!";
 <br>
 <a href="courses/index.php">Managemen Kelas</a>
 <br>
+<a href="registrations/index.php">Managemen Pendaftaran</a>
+<br>
 <a href="logout.php">Logout</a>

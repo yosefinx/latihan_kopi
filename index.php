@@ -29,7 +29,7 @@ include 'header.php';
 </section>
 <section>
     <h2>Form Pendaftaran</h2>
-
+    <?php include 'frm_pendaftaran.php'; ?>
 </section>
 </body>
 

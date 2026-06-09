@@ -4,8 +4,11 @@ include '../../koneksi.php';
 
 $sql = "SELECT * FROM courses";
 $query = mysqli_query($conn, $sql);
-
 ?>
+
+<a href="../dashboard.php">Kembali ke Dashboard</a> |
+<a href="tambah.php">Tambah Course</a>
+<br><br>
 
 <table border="1">
     <thead>
@@ -16,10 +19,12 @@ $query = mysqli_query($conn, $sql);
             <th>Harga</th>
             <th></th>
         </tr>
+    </thead>
     <tbody>
         <?php
         $no = 1;
         while ($result = mysqli_fetch_assoc($query)) {
+            $id = $result['id'];
             $name = $result['name'];
             $description = $result['description'];
             $price = number_format($result['price'], 0, ',', '.');
@@ -29,7 +34,7 @@ $query = mysqli_query($conn, $sql);
                 <td><?= $name ?></td>
                 <td><?= $description ?></td>
                 <td>Rp <?= $price ?></td>
-                <td>Ubah | Hapus</td>
+                <td><a href="edit.php?id=<?= $id ?>">Edit</a> | <a href="hapus.php?id=<?= $id ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a></td>
             </tr>
         <?php
             $no++;
