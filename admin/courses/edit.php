@@ -18,6 +18,7 @@ if (!$data) {
     exit;
 }
 
+//buat untuk menangani proses update data course biar error bisa masuk melalui $error
 // if (isset($_POST['ubah'])) {
 //     $id_course = $_POST['id'];
 //     $title = trim($_POST['title']);
